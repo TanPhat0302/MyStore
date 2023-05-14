@@ -1,6 +1,21 @@
 ﻿@page
+@using System.Xml.Linq;
 @model MyStore.Pages.Clients.IndexModel
 @{
+}
+
+
+@{
+
+    string city = "Vaasa";
+    HttpClient client = new HttpClient();
+    var response = await client.GetAsync("http://localhost:7126/weather/nightly/today/" + city);
+    string temp = await response.Content.ReadAsStringAsync();
+
+
+    
+
+    //double temp = Double.Parse(response.Content.ToString());
 }
 <br>
 <h2>List of Clients</h2>
@@ -33,5 +48,8 @@
                 </td>
             </tr>
         }
+        <p>Nightly temperature: @temp</p>
+        <p>TimeZone: </p>
     </tbody>
+
 </table>

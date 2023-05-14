@@ -14,7 +14,7 @@ namespace MyStore.Pages.Clients
         {
 
                 var client = new country_to_timezone();
-                var result = await client.country_to_timezone();
+                //var result = await client.country_to_timezone();
 
 
 
